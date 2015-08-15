@@ -1,0 +1,6 @@
+/typings
+/.settings
+/node_modules
+
+/build/index.html
+/public/index.html

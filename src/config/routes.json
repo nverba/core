@@ -1,0 +1,10 @@
+[
+	{
+		"path": "/",
+		"redirectTo": "/register"
+	},
+	{
+		"path": "/register",
+		"component": "register"
+	}
+]

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Core Application</title>
+  <base href="/">
+
+  <!-- inject:css -->
+    <link rel="stylesheet" href="css/main.css"><!-- async css -->
+  <!-- endinject -->
+
+  <style type="text/css">
+    /* inject:immediate:css *//* endinject */
+  </style>
+
+</head>
+<body ng-app='Core' ng-controller="CoreController as core">
+  
+  <p>Hello world!</p>
+
+  <!-- These links are hardcoded for dev build & only overwritten in production -->
+  <!-- inject:js -->
+  <script src="js/libs.js"></script>
+  <script src="js/templates.js"></script>
+  <script src="js/main.js"></script>
+  <!-- endinject -->
+  
+</body>
+</html>
