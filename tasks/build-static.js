@@ -11,7 +11,7 @@ gulp.task('build:img', function () {
 });
 
 gulp.task('build:json', function () {
-  return del(argv.production ? 'public/lang/' : 'build/lang/', function() {
+  return del(argv.production ? 'public/lang/*.*' : 'build/lang/*.*', function() {
     return gulp.src('./src/lang/**/*.*')
 		  .pipe(gulpif(argv.production, gulp.dest('./public/lang/'), gulp.dest('./build/lang/')));
   });
