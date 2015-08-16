@@ -15,7 +15,7 @@ gulp.task('build:css', function () {
     // Collect all .scss file names from components and inject into main.scss as dependencies
     return gulp.src('./src/scss/main.scss')
       .pipe(inject(
-        gulp.src(['./src/**/*.scss', '!./src/scss/immediate.scss'], {read: false}), {
+        gulp.src(['./src/**/*.scss', '!./src/scss/immediate.scss', '!./src/scss/main.scss'], {read: false}), {
           starttag: '/* {{name}}:{{ext}} */',
           endtag: '/* endinject */',
           transform: function (filepath) {

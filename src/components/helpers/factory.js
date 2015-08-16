@@ -1,6 +1,6 @@
-angular.module('and.helpers', [])
+angular.module('Core:And', [])
 
-angular.module('and.helpers').factory('And', [andFactoryFn]);
+angular.module('Core:And').factory('And', [andFactoryFn]);
 
 function andFactoryFn() {
   

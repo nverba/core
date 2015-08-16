@@ -1,13 +1,15 @@
 'use strict';
 
-require('../components/helpers/and-helpers.js');
-require('../components/state/application-state.js');
-require('../components/aside/aside.js');
-require('../components/register/register.js');
+require('../../node_modules/material-design-lite/material.min.js');
+require('../components/helpers/factory.js');
+require('../components/state/factory.js');
+require('../components/dates/controller.js');
+require('../components/people/controller.js');
+require('../components/counter/directive.js');
 
 var routes = require('../config/routes.json');
 
-angular.module('Core', ['ngNewRouter', 'ngSanitize', 'Core:State', 'pascalprecht.translate', 'templates', 'and.helpers']);
+angular.module('Core', ['ngNewRouter', 'ngSanitize', 'Core:State', 'pascalprecht.translate', 'templates', 'App:Dates', 'App:People', 'App:Counter', 'Core:And']);
 
 angular.module('Core').controller('CoreController', ['$scope', '$router', '$http', '$q', '$location', 'And', 'State', CoreControllerFn]);
 

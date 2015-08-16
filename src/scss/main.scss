@@ -1,1 +1,12 @@
+@import '../../node_modules/material-design-lite/material.min';
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
 /* inject:scss *//* endinject */
+
+.coreButton {
+	@extend .mdl-button, .mdl-js-button, .mdl-button--raised, .mdl-js-ripple-effect, .mdl-button--accent;
+}
+
+.page-container {
+	max-width: 300px;
+}

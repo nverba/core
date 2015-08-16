@@ -1,10 +1,17 @@
 [
 	{
 		"path": "/",
-		"redirectTo": "/register"
+		"redirectTo": "/select"
 	},
-	{
-		"path": "/register",
-		"component": "register"
+  {
+		"path": "/select",
+		"components": {
+			"main": "dates",
+			"people": "people"
+		},
+    "as": "select"
 	}
 ]
+
+
+

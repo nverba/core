@@ -17,6 +17,7 @@
     "body-parser": "^1.13.2",
     "express": "^4.13.1",
     "jsonwebtoken": "^5.0.4",
+    "material-design-lite": "^1.0.2",
     "mongoose": "^4.1.2",
     "morgan": "^1.6.1",
     "redux": "^1.0.1"
