@@ -1,9 +1,17 @@
 
 angular.module('App:Counter', []);
-angular.module('App:Counter').controller('CounterController', ['State', CounterControllerFn]);
+angular.module('App:Counter').controller('CounterController', ['$scope', 'State', CounterControllerFn]);
 angular.module('App:Counter').directive('counter', ['State', counterFn]);
 
-function CounterControllerFn(State) {
+function CounterControllerFn($scope, State) {
+  
+  // Create a Redux store holding the state of your app.
+  // Its API is { subscribe, dispatch, getState }.
+  let store = State.createStore(counter);
+  
+  var pushCount = angular.bind(this, function() {
+    this.count = store.getState();
+  })
   
   function counter(state = 0, action) {
     switch (action.type) {
@@ -15,15 +23,9 @@ function CounterControllerFn(State) {
       return state;
     }
   }
-  
-  // Create a Redux store holding the state of your app.
-  // Its API is { subscribe, dispatch, getState }.
-  let store = State.createStore(counter);
-  
+ 
   // You can subscribe to the updates manually, or use bindings to your view layer.
-  store.subscribe(() =>
-    console.log(store.getState())
-  );
+  store.subscribe(pushCount);
 
   this.increment = function() { console.log('inc');
     store.dispatch({ type: 'INCREMENT' });
@@ -44,7 +46,7 @@ function counterFn (State) {
     templateUrl: './components/counter/template.html',
     link: function(scope, elem, attrs) {
 	
-
+      
       
     }
   };
