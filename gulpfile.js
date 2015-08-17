@@ -1,5 +1,6 @@
 var gulp       = require('gulp');
 var requireDir = require('require-dir')('./tasks');
+var browserSync = require('browser-sync').create();
 
 gulp.task('build:static', ['build:img', 'build:json']);
 
