@@ -24,7 +24,7 @@ app.use(bodyParser.json());
 // routes ================
 // =======================
 
-if (process.env.development) {
+if (process.env.NODE_ENV === 'development') {
   app.use(express.static(__dirname + '/build'));
 } else {
   app.use(express.static(__dirname + '/public'));

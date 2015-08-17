@@ -7,7 +7,9 @@ var streamify    = require('gulp-streamify');
 var gulpif       = require('gulp-if');
 var del          = require('del');
 var argv         = require('yargs').argv;
-var browserSync  = require('browser-sync').create();
+var browserSync  = require('browser-sync');
+var reload = browserSync.reload;
+var nodemon = require('gulp-nodemon');
 
 gulp.task('build:css', function () {
   
@@ -27,7 +29,8 @@ gulp.task('build:css', function () {
   	  .pipe(streamify(sass()))
       .pipe(autoprefixer())
       .pipe(gulpif(argv.production, freeze()))
-      .pipe(gulpif(argv.production, gulp.dest('./public/css'), gulp.dest('./build/css')));
+      .pipe(gulpif(argv.production, gulp.dest('./public/css'), gulp.dest('./build/css')))
+      .pipe(browserSync.stream());
   });
 });
 
