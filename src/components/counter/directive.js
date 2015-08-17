@@ -9,9 +9,10 @@ function CounterControllerFn($scope, State) {
   // Its API is { subscribe, dispatch, getState }.
   let store = State.createStore(counter);
   
-  var pushCount = angular.bind(this, function() {
+  var bindCount = angular.bind(this, function() {
     this.count = store.getState();
   })
+  bindCount();
   
   function counter(state = 0, action) {
     switch (action.type) {
@@ -25,7 +26,7 @@ function CounterControllerFn($scope, State) {
   }
  
   // You can subscribe to the updates manually, or use bindings to your view layer.
-  store.subscribe(pushCount);
+  store.subscribe(bindCount);
 
   this.increment = function() { console.log('inc');
     store.dispatch({ type: 'INCREMENT' });
