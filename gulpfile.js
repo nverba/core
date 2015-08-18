@@ -1,9 +1,9 @@
-var gulp       = require('gulp');
-var requireDir = require('require-dir')('./tasks');
+var gulp         = require('gulp');
+var requireDir   = require('require-dir')('./tasks');
 var browserSync  = require('browser-sync');
-var reload = browserSync.reload;
-var nodemon = require('gulp-nodemon');
-var gutil = require('gulp-util');
+var reload       = browserSync.reload;
+var nodemon      = require('gulp-nodemon');
+var gutil        = require('gulp-util');
 
 var sass         = require('gulp-sass');
 var inject       = require('gulp-inject');
@@ -53,10 +53,6 @@ gulp.task('nodemon', function (cb) {
     });
 });
 
-
-
-
-
 gulp.task('build:css', function () {
   
   return del(argv.production ? 'public/css/*.*' : 'build/css/*.*', function() {
@@ -73,12 +69,10 @@ gulp.task('build:css', function () {
         }
       ))
   	  .pipe(streamify(sass()))
-      .pipe(gutil.noop(gutil.log('!!!!!!!!!!!!!!!!!!!!!!after inject')))
       .pipe(autoprefixer())
       .pipe(gulpif(argv.production, freeze()))
       .pipe(gulpif(argv.production, gulp.dest('./public/css'), gulp.dest('./build/css')))
-      .pipe(browserSync.stream())
-      .pipe(gutil.noop(gutil.log('!!!!!!!!!!!!!!!!!!!!!!after browser sync')));
+      .pipe(browserSync.stream());
       
   });
 });

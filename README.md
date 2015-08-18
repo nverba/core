@@ -16,7 +16,14 @@ gulp build --production
 development=true node server.js
 ```
 
-#### Gulp tasks
+#### Live development
+
+```bash
+# Start live development with Browser Sync
+gulp serve
+```
+
+#### Individual Gulp tasks
 
 ```bash
 # Compiles css from scss
